@@ -1,0 +1,98 @@
+/* TaskBoard.css */
+.task-board {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.task-column {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.column-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: medium;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.status-indicator.backlog {
+    background-color: gray;
+}
+
+.status-indicator.todo {
+    background-color: blue;
+}
+
+.status-indicator.inProgress {
+    background-color: orange;
+}
+
+.status-indicator.done {
+    background-color: green;
+}
+
+.status-indicator.cancelled {
+    background-color: red;
+}
+
+.priority-tag {
+    display: flex;
+    align-items: center;
+}
+
+.priority-indicator {
+    margin-right: 8px;
+    
+}
+
+.tag {
+    display: inline-block;
+    color: #787878;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+.status-icon {
+    margin: 0 8px; 
+    display: inline-block;
+    vertical-align: middle;
+}
+.column-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes dash {
+    0% {
+      stroke-dashoffset: 62.8;
+    }
+    50% {
+      stroke-dashoffset: 125.6;
+    }
+    100% {
+      stroke-dashoffset: 62.8;
+    }
+  }
+  

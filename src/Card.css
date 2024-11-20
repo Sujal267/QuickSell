@@ -1,0 +1,53 @@
+/* SecurityVulnerabilityAssessmentCard.css */
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+.title {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+
+.status-container {
+  display: flex;
+  align-items: center;
+}
+
+.status-indicator {
+  background-color: #ef4444;
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+  margin-right: 8px;
+}
+
+.status-text {
+  color: #6b7280;
+}
+/* Card.css */
+.id-profile-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2%;
+}
+
+.profile-icon {
+  width: 20px;
+  height: 20px;
+}
+
+
+.tag-with-border {
+  border: 1px solid #ccc; /* Light gray border */
+  padding: 5px 5px; /* Adjust padding for spacing */
+  border-radius: 3px; /* Optional: gives rounded corners */
+  font-size: 0.9em; /* Optional: adjust font size if needed */
+  color: #333; /* Text color */
+}
+
+
