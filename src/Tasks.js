@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import './Tasks.css';
-// Keep all your existing SVG imports
 import { ReactComponent as BacklogIcon } from './icons_FEtask/Backlog.svg';
 import { ReactComponent as TodoIcon } from './icons_FEtask/To-do.svg';
 import { ReactComponent as InProgressIcon } from './icons_FEtask/in-progress.svg';
@@ -9,7 +8,6 @@ import { ReactComponent as DoneIcon } from './icons_FEtask/Done.svg';
 import { ReactComponent as CancelledIcon } from './icons_FEtask/Cancelled.svg';
 import { ReactComponent as Add } from './icons_FEtask/add.svg';
 import { ReactComponent as ThreeDot } from './icons_FEtask/3 dot menu.svg';
-// Add priority icon imports
 import urgentIcon from './icons_FEtask/SVG - Urgent Priority colour.svg';
 import highIcon from './icons_FEtask/Img - High Priority.svg';
 import mediumIcon from './icons_FEtask/Img - Medium Priority.svg';
@@ -17,13 +15,11 @@ import lowIcon from './icons_FEtask/Img - Low Priority.svg';
 import noPriorityIcon from './icons_FEtask/No-priority.svg';
 
 const TaskBoard = ({ grouping, ordering }) => {
-    // Initialize state variables
     const [tasks, setTasks] = useState([]);
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Fetch data when component mounts
     useEffect(() => {
         fetch('https://api.quicksell.co/v1/internal/frontend-assignment')
             .then((response) => response.json())
@@ -94,7 +90,6 @@ const TaskBoard = ({ grouping, ordering }) => {
         
         let orderedTasks = [...tasks];
 
-        // Apply ordering
         if (ordering === 'Priority') {
             orderedTasks.sort((a, b) => b.priority - a.priority);
         } else if (ordering === 'Title') {
@@ -126,7 +121,6 @@ const TaskBoard = ({ grouping, ordering }) => {
 
     const groupedTasks = getGroupedTasks();
 
-    // Determine columns based on grouping
     const getColumns = () => {
         if (grouping === 'Status') {
             return ['Backlog', 'Todo', 'In progress', 'Done', 'Cancelled'];
@@ -140,7 +134,6 @@ const TaskBoard = ({ grouping, ordering }) => {
 
     const columns = getColumns();
 
-    // Status icons mapping
     const statusIcons = {
         'Backlog': <BacklogIcon />,
         'Todo': <TodoIcon />,
@@ -149,7 +142,6 @@ const TaskBoard = ({ grouping, ordering }) => {
         'Cancelled': <CancelledIcon />,
     };
 
-    // Priority icons mapping
     const priorityIcons = {
         'Urgent': <img src={urgentIcon} alt="Urgent" className="column-icon" />,
         'High': <img src={highIcon} alt="High" className="column-icon" />,
@@ -164,7 +156,7 @@ const TaskBoard = ({ grouping, ordering }) => {
                 <div key={columnKey} className="task-column">
                     <div className="column-header" style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <p className="column-title" style={{ display: 'flex', alignItems: 'center' }}>
-                            {/* Conditionally render the profile icon for 'User' grouping */}
+                            
                             {grouping === 'User' && (
                                 <img src={profileIcon} alt="Profile Icon" style={{ marginRight: '8px',width:'20px' }} />
                             )}
@@ -192,7 +184,7 @@ const TaskBoard = ({ grouping, ordering }) => {
                                 tag={task.tag[0]}
                                 priority={task.priority}
                                 user={users.find(u => u.id === task.userId)}
-                                grouping={grouping} // Pass grouping to Card
+                                grouping={grouping} 
                             />
                         ))}
                     </div>

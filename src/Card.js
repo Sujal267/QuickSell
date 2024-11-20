@@ -1,25 +1,20 @@
 import React from 'react';
 import './Card.css';
-
-// Importing SVGs for each priority
 import urgentIcon from './icons_FEtask/SVG - Urgent Priority grey.svg';
 import highIcon from './icons_FEtask/Img - High Priority.svg';
 import mediumIcon from './icons_FEtask/Img - Medium Priority.svg';
 import lowIcon from './icons_FEtask/Img - Low Priority.svg';
 import noPriorityIcon from './icons_FEtask/No-priority.svg';
 
-// Import status icons
 import { ReactComponent as BacklogIcon } from './icons_FEtask/Backlog.svg';
 import { ReactComponent as TodoIcon } from './icons_FEtask/To-do.svg';
 import { ReactComponent as InProgressIcon } from './icons_FEtask/in-progress.svg';
 import { ReactComponent as DoneIcon } from './icons_FEtask/Done.svg';
 import { ReactComponent as CancelledIcon } from './icons_FEtask/Cancelled.svg';
 
-// Importing profile icon
 const profileIcon = "https://cdn.jsdelivr.net/npm/heroicons@2.0.16/24/outline/user-circle.svg";
 
 const Card = ({ id, title, status, tag, priority, user, grouping }) => {
-  // Function to get the priority label and icon based on priority value
   const getPriorityLabel = (priority) => {
     switch (priority) {
       case 4:
@@ -37,7 +32,6 @@ const Card = ({ id, title, status, tag, priority, user, grouping }) => {
     }
   };
 
-  // Function to get status icon
   const getStatusIcon = (status) => {
     switch (status) {
       case 'Backlog':
@@ -61,7 +55,6 @@ const Card = ({ id, title, status, tag, priority, user, grouping }) => {
         <div className="id-profile-wrapper">
           <span className="task-id" style={{ fontSize: '14px', color: '#787878' }}>{id}</span>
 
-          {/* Conditionally render profile icon when grouping is not 'User' */}
           {grouping !== 'User' && (
             <img src={profileIcon} alt="Profile Icon" className="profile-icon" />
           )}
@@ -85,7 +78,6 @@ const Card = ({ id, title, status, tag, priority, user, grouping }) => {
             marginRight: '2px',
           }}
         >
-          {/* Conditionally render status icon */}
           {grouping !== 'Status' && getStatusIcon(status)}
         </div>
 
@@ -108,7 +100,6 @@ const Card = ({ id, title, status, tag, priority, user, grouping }) => {
       <div className="card-footer">
         <div className="priority-tag" style={{ marginTop: '5px' }}>
           <span className="priority-indicator" style={{ marginTop: '3px' }}>
-            {/* Conditionally render priority icon */}
             {grouping !== 'Priority' && getPriorityLabel(priority).icon && (
               <img style={{ paddingTop: '2px' }} src={getPriorityLabel(priority).icon} alt={getPriorityLabel(priority).label} />
             )}
